@@ -11,12 +11,13 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - cython
@@ -27,7 +28,6 @@ requirements:
   run:
     - python
     - cython >=0.23.4
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
