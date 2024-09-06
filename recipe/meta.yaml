@@ -21,6 +21,7 @@ requirements:
   host:
     - python
     - cython
+    - setuptools
     - numpy
     - pip
     - libblas
