@@ -8,10 +8,12 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/maxvolpy-{{ version }}.tar.gz
   sha256: df4adb1bbc091e960ec5f3e5b53c3909ae428f5e48cf7ab95a01ea982a1a1980
+  patches:
+    - cython.patch
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
