@@ -6,26 +6,31 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/maxvolpy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/maxvolpy-{{ version }}.tar.gz
   sha256: df4adb1bbc091e960ec5f3e5b53c3909ae428f5e48cf7ab95a01ea982a1a1980
+  patches:
+    - setup.patch
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  script: cd maxvolpy; {{ PYTHON }} _maxvol.pyx.src; cd ..; {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 3
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - cython
     - numpy
     - pip
+    - setuptools
     - libblas
     - liblapack
   run:
     - python
+    - scipy
     - cython >=0.23.4
     - {{ pin_compatible('numpy') }}
 
