@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/maxvolpy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/maxvolpy-{{ version }}.tar.gz
   sha256: df4adb1bbc091e960ec5f3e5b53c3909ae428f5e48cf7ab95a01ea982a1a1980
 
 build:
@@ -22,6 +22,7 @@ requirements:
     - cython
     - numpy
     - pip
+    - setuptools
     - libblas
     - liblapack
   run:
