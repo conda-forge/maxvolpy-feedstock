@@ -30,6 +30,7 @@ requirements:
     - liblapack
   run:
     - python
+    - scipy
     - cython >=0.23.4
     - {{ pin_compatible('numpy') }}
 
