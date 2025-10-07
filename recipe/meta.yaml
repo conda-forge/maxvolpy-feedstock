@@ -13,7 +13,7 @@ source:
 
 build:
   script: cd maxvolpy; {{ PYTHON }} _maxvol.pyx.src; cd ..; {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 3
+  number: 4
   skip: true  # [win]
 
 requirements:
